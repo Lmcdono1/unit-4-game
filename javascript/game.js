@@ -22,7 +22,6 @@ $(document).ready(function(){
     crystalNumbers();
  
 
-
 //develop a for-loop to create random numbers for each crystal (4)
 function crystalNumbers (){
     for (var i = 0; i < 4; i++){
@@ -49,7 +48,6 @@ function resetGameLost() {
     //guessNumbers = [];
     $(losses).text(losses);
 };
-
 
 
 //crystal clicks generate a random number from for-loop above (must index the numbers to get a different number for each one)
