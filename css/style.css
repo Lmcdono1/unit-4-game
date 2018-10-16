@@ -1,47 +1,43 @@
 body{
-    margin: 0%;
-    padding: 0%;
-}
-
-main{
-    background: url(https://78.media.tumblr.com/c46df3df28e602fa1353710323893de5/tumblr_oitkltQryc1tf8vylo1_1280.png);
-    height: 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(../images/paper_background.png) no-repeat center center fixed;
     background-size: cover;
+    padding-top: 20px;
     overflow: auto;
 }
 
 .header{
     text-align: center;
-    font-size: 25px;
-    font-family: 'Merienda', cursive;
-    color: azure;
-    padding-top: 1%;
+    font-size: 70px;
+    font-family: 'Pompiere', cursive;
+    color: rgb(31, 31, 128);
+    padding-top: 5%;
 }
 
 .crystal-image {
     width: 150px;
     height: 150px;
+ 
   }
 
 .p1 {
-    font-size: 24px;
+    font-size: 22px;
     margin-left: 2%;
     margin-right: 2%;
+    margin-bottom: 0px;
 }
 
 .p2 {
+    margin-top: 10px;
     font-size: 18px;
-    font-weight: bolder;
+    margin-bottom: 50px;
+     
 }
 
 .container1{
-    border: 2px dashed azure;
     overflow: auto;
     text-align: center;
-    color: azure;
-    font-family: 'Poiret One', cursive;
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
     margin-left: 15%;
     margin-right: 15%;
     
@@ -49,22 +45,66 @@ main{
 
 .header-2 {
     text-align: center;
-    color: whitesmoke;
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
 }
 
-.crystal-image{
-    width: 150px;
-    height: 150px;
-}
 
-.jumbotron{
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: plum;
+.container-crystals{
+    margin-left: 25%;
+    background-color: transparent;
+    margin-bottom: 50%;
 
 } 
 
+.container-crystals{
+align-items: center;
+
+}
+
+.col-xs-6{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#match-number{
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
+
+}
+
+#random-number{
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
+    margin-left: 20px;
+}
+
+#button1{
+    background-color: transparent;
+    border: 2px solid rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
+    color: rgb(31, 31, 128);
+    letter-spacing: 2px;
+}
+
+#your-number{
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
+}
+
+#total-score{
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
+}
+
+.score{
+    color: rgb(31, 31, 128);
+    font-family: 'Pompiere', cursive;
+    font-size: 20px;
+   
+}
+
+#number-show{
+    max-width: 900px;
+    margin:0 auto;
+}

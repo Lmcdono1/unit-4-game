@@ -1,11 +1,10 @@
-
 var gameStarted = false;        //game begins
 var gameOver = false;           //game ends
 var wins = 0;                   // wins set to 0
 var losses = 0;                 // losses set to 0
 var totalNumbers = 0;           //numbers as they are added by the player
 var guessNumbers = [];          //numbers player will guess with crystals
-
+var rand = 0;
 
 //Number to match = random-number
 //Your score = total-score
@@ -15,70 +14,74 @@ var guessNumbers = [];          //numbers player will guess with crystals
 
 //function to create a random number the user needs to guess between 100 and 30
 $(document).ready(function(){
-    var rand = Math.floor(Math.random()* 70) + 30;
-    //var rand = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-    $('#random-number').text(rand);
-    console.log(rand);
     crystalNumbers();
+    
  
 
 //develop a for-loop to create random numbers for each crystal (4)
 function crystalNumbers (){
+
+    rand = Math.floor(Math.random()* 41)+ 30;
+    //var rand = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+    $('#random-number').text(rand);
+    console.log(rand);
     for (var i = 0; i < 4; i++){
-        var newNumber = Math.floor(Math.random() * 10 + 1);
+        var newNumber = Math.floor(Math.random() * 10) + 1;
+        console.log(newNumber);
         guessNumbers.push(newNumber);
     }
+    gameStarted = true;
+    $('#total-score').text(totalNumbers);
 };
 
 
-//resetting game if won -- this function is not working YET
+//resetting game if won 
 function resetGameWin() {
-    totalNumbers == rand;
     gameStarted = false;
     wins++;
     //guessNumbers = [];
-    $(wins).text(wins);
-
+    totalNumbers = 0;
+    $('#wins').text(wins);
 }
-//resetting game if lost -- this function is not working YET
+//resetting game if lost
 function resetGameLost() {
-    totalNumbers > rand;
     gameStarted = false;
     losses++;
     //guessNumbers = [];
-    $(losses).text(losses);
+    totalNumbers = 0;
+    $('#losses').text(losses);
 };
 
 
 //crystal clicks generate a random number from for-loop above (must index the numbers to get a different number for each one)
-$('#img1').on ('click', function(){
-    //total of the numbers the player has clicked thus far + the number of the crystal clicked
-    totalNumbers = totalNumbers + guessNumbers[0];
+
+function calculateScore(numberValue){
+    if (gameStarted == false){
+        console.log("gameNotStarted");
+        crystalNumbers();
+    } else {
+        totalNumbers = totalNumbers + numberValue;
     console.log("total=" + totalNumbers);
     $('#total-score').text(totalNumbers);
-    //run validate function to determine if player won or lost on each click	
     validateCheck();
+    }
+
+}
+
+$('#img1').on ('click', function(){
+   calculateScore(guessNumbers[0]);
 })
 
 $('#img2').on ('click', function(){
-    totalNumbers = totalNumbers + guessNumbers[1];
-    console.log("total=" + totalNumbers);
-    $('#total-score').text(totalNumbers);
-    validateCheck();	
+    calculateScore(guessNumbers[1]);
 })
 
 $('#img3').on ('click', function(){
-    totalNumbers = totalNumbers + guessNumbers[2];
-    console.log("total=" + totalNumbers);
-    $('#total-score').text(totalNumbers);
-    validateCheck();
+    calculateScore(guessNumbers[2]);
 })
 
 $('#img4').on ('click', function(){ 
-    totalNumbers = totalNumbers + guessNumbers[3];
-    console.log("total=" + totalNumbers);
-    $('#total-score').text(totalNumbers);
-    validateCheck();	
+    calculateScore(guessNumbers[3]);	
 })
 
 //Validate that the pkayer has won/lost, alert them, and restart the game (still working on reset)
@@ -87,15 +90,12 @@ function validateCheck() {
     if (totalNumbers == rand){
         $("#total-score").append(" You win!");
         //add wins score
-        wins++;
-        $('#wins').text(wins);
+        
         resetGameWin();
     } else {
         if (totalNumbers > rand){
         $("#total-score").append(" You lose!");
-        //add losses score
-        losses++;
-        $('#losses').text(losses);
+        
         resetGameLost();
         }
     }       
@@ -108,3 +108,4 @@ $('#wins').text(wins);
 $('#losses').text(losses);
 
 });
+

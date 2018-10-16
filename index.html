@@ -6,68 +6,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Crystal Collector Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+
+    <!-- Favicons -->
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Euphoria+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
+    <!--My CSS-->
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <div class="header text-center">
+        <h1>CRYSTAL COLLECTOR</h1>
+        <p class="p1">You will be given a random number at the start of each game that you must match by clicking the
+            crystals below.</p>
+        <p class="p1">The value of each crystal is hidden from you until you click it.To win the game you
+            must match your total score to the random number.</p>
 
-    <main>
-        <header>
-            <div class="header">
-                <h1 class="header-1">Crystal Collector</h1>
-            </div>
-        </header>
-        <div class="container1">
-
-            <p class="p1">
-                You will be given a random number at the start of each game.
-            </p>
-            <p class="p1">
-                There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score. The
-                value of each crystal is hidden from you until you click on it.</p>
-            <p class="p1">
-                You win the game by matching your total score to the random number, you lose the game if your total score goes above the
-                random number.</p>
-            <p class="p2">
-                Note: Each time the game starts, the game will change the values of each crystal.</p>
-        </div>
-        <br>
-        <div class="jumbotron">
-            <div class="image">
-            <img src="images/crystal1.png" class=crystal-image id="img1">
-            <img src="images/crystal2.png" class=crystal-image id="img2">
-            <img src="images/crystal3.png" class=crystal-image id="img3">
-            <img src="images/crystal4.png" class=crystal-image id="img4">
+        <p class="p2"> NOTE: The game will change the values of each crystal for each new round.</p>
     </div>
+
+    <div class="row" id="number-show">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 text-center">
+            </div>
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 text-center">
+                <h3 id="match-number">MATCH NUMBER:</h3> 
+                <h3 id="random-number"></h3>
+                
         </div>
-        <div class="jumbotron">
-            <h4 id="area1">Number to match:
-            <span id="random-number"></span>
-            </h4>
-            <h4 id="area2">Your score:
-            <span id="total-score"></span>
-            </h4>
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 text-center">
+                <h3 id="your-number">YOUR NUMBER:</h3>
+                <h3 id="total-score"></h3>
         </div>
-        <div class="jumbotron">
-                <h4 id="area1">Wins:
-                <span id="wins"></span>
-                </h4>
-                <h4 id="area2">Losses:
-                <span id="losses"></span>
-                </h4>
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 text-center">
+                <p class="score">WINS: <span id="wins"></span></p>
+                <p class="score">LOSSES: <span id="losses"></span></p>
+        </div>
+        <!-- <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 text-center">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 text-center">
+        </div> -->
+    </div>
+    
+<br>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                <img class="crystal-image img-responsive" id="img1" src="./images/crystal1.png" alt="Crystal 1" />
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                <img class="crystal-image img-responsive" id="img2" src="./images/crystal2.png" alt="Crystal 2" />
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                <img class="crystal-image img-responsive" id="img3" src="./images/crystal3.png" alt="Crystal 3" />
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                <img class="crystal-image img-responsive" id="img4" src="./images/crystal4.png" alt="Crystal 4" />
             </div>
         </div>
 
+        <br>
+        <br>
+        
+    </div>
 
-        <script type="text/javascript" src="javascript/game.js">
-        </script>
 
-    </main>
+    <script type="text/javascript" src="javascript/game.js"></script>
 
 </body>
 
