@@ -39,17 +39,19 @@ function crystalNumbers (){
 function resetGameWin() {
     gameStarted = false;
     wins++;
-    //guessNumbers = [];
+    guessNumbers = [];
     totalNumbers = 0;
     $('#wins').text(wins);
+    // crystalNumbers();
 }
 //resetting game if lost
 function resetGameLost() {
     gameStarted = false;
     losses++;
-    //guessNumbers = [];
+    guessNumbers = [];
     totalNumbers = 0;
     $('#losses').text(losses);
+    // crystalNumbers();
 };
 
 
@@ -92,11 +94,14 @@ function validateCheck() {
         //add wins score
         
         resetGameWin();
+        
+
     } else {
         if (totalNumbers > rand){
         $("#total-score").append(" You lose!");
         
         resetGameLost();
+        
         }
     }       
     
